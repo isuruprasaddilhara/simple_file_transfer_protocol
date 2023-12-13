@@ -1,11 +1,19 @@
 def receive():
     import socket
     import tqdm
+    
 
     #if it is windows below code will detect host address correctly if it is linux it will detect 127.0.0.1 as it's address therefore we have to give it through user input
     my_address = socket.gethostbyname(socket.gethostname())
     my_address = input("Enter Your IP Address : ")
     file_save_path = input("Enter file path to save the file : ")
+    if os.name == 'posix':
+        file_save_path = file_save_path + '/'
+    elif os.name == 'nt':
+        file_save_path = file_save_path + '\\'
+    else:
+        print('This Script does not work in your os!!!')
+    
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.bind((my_address,888))
     print("[+] Waiting for a connection... ")
