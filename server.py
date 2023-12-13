@@ -3,13 +3,12 @@ def receive():
     import tqdm
     import os
 
-    #if it is windows below code will detect host address correctly if it is linux it will detect 127.0.0.1 as it's address therefore we have to give it through user input
-    my_address = socket.gethostbyname(socket.gethostname())
-    my_address = input("Enter Your IP Address : ")
     file_save_path = input("Enter file path to save the file : ")
     if os.name == 'posix':
+        my_address = input("Enter Your IP Address : ")
         file_save_path = file_save_path + '/'
     elif os.name == 'nt':
+        my_address = socket.gethostbyname(socket.gethostname())
         file_save_path = file_save_path + '\\'
     else:
         print('This Script does not work in your os!!!')
