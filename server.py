@@ -43,7 +43,7 @@ def receive():
         print(f"We got a connection from {addr}")
         receive_file(client)
         client.close()
-
+        s.close()
         print('')
         print('----------------------------------------------------------------------------')
 
