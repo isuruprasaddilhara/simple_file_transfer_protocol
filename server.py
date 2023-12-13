@@ -2,8 +2,9 @@ def receive():
     import socket
     import tqdm
 
-    my_address = socket.gethostbyname(socket.gethostname());print(my_address)
-    
+    #if it is windows below code will detect host address correctly if it is linux it will detect 127.0.0.1 as it's address therefore we have to give it through user input
+    my_address = socket.gethostbyname(socket.gethostname())
+    my_address = input("Enter Your IP Address : ")
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.bind((my_address,888))
     print("[+] Waiting for a connection... ")
@@ -38,4 +39,3 @@ def receive():
         print('')
         print('----------------------------------------------------------------------------')
 
-receive()
