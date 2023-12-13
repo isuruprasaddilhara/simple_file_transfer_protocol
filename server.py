@@ -1,7 +1,7 @@
 def receive():
     import socket
     import tqdm
-    
+    import os
 
     #if it is windows below code will detect host address correctly if it is linux it will detect 127.0.0.1 as it's address therefore we have to give it through user input
     my_address = socket.gethostbyname(socket.gethostname())
